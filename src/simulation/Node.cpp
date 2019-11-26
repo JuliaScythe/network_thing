@@ -3,9 +3,6 @@
 Node::Node(std::vector<Connection> connections) : connections(connections) {
 }
 
-Node::Node() {
-  connections = new std::vector<Connection>();
-}
 
 void Node::addConnection(Connection connection) {
   connections.push_back(connection);

@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "Connection.hpp"
-
+class Connection;
 class Node {
 public:
   Node(std::vector<Connection> connections);
@@ -13,5 +13,5 @@ public:
 private:
   std::vector<Connection> connections;
   std::string name;
-}
+};
 // vim: et sw=2
