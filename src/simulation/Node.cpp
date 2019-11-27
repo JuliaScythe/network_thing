@@ -11,4 +11,8 @@ void Node::addConnection(Connection connection) {
 std::vector<Connection> Node::getConnections() {
   return connections;
 }
+
+void Node::DoTick() {
+  return;
+}
 // vim: et sw=2
