@@ -7,3 +7,8 @@ Connection::Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB) : n
 void Connection::DoTick() {
   return;
 }
+
+void Connection::sendPacket(Packet &packet, Node *node) {
+  mPackets.push_back(packet);
+  
+}
