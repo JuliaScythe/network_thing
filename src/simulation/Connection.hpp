@@ -3,16 +3,17 @@
 #include <string>
 #include "Node.hpp"
 #include "SimObject.hpp"
+#include <memory>
 
 class Node;
 class Connection : public SimObject {
 public:
-  Connection(Node &nodeA, Node &nodeB);
+  Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB);
   void DoTick();
 
 private:
-  Node &nodeA;
-  Node &nodeB;
+  std::weak_ptr<Node> nodeA;
+  std::weak_ptr<Node> nodeB;
   std::string name;
 };
 

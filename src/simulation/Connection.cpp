@@ -1,6 +1,8 @@
 #include "Connection.hpp"
+#include <memory>
 
-Connection::Connection(Node &nodeA, Node &nodeB) : nodeA(nodeA), nodeB(nodeB) {}
+
+Connection::Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB) : nodeA(nodeA), nodeB(nodeB) {}
 
 void Connection::DoTick() {
   return;
