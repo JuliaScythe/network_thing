@@ -15,4 +15,15 @@ std::vector<Connection> Node::getConnections() {
 void Node::DoTick() {
   return;
 }
+
+void Node::receivePacket(Packet &p) {
+  if (p.mDst.lock().get() == this) {
+    handlePacket(p);
+  }
+  forwardPacket(p);
+}
+
+void Node::handlePacket(Packet &p) {}
+void Node::forwardPacket(Packet &p) {}
+
 // vim: et sw=2

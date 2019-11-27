@@ -3,6 +3,7 @@
 #include <vector>
 #include "Connection.hpp"
 #include "SimObject.hpp"
+#include "Packet.hpp"
 
 class Connection;
 class Node : public SimObject {
@@ -13,6 +14,9 @@ public:
   void addConnection(Connection connection);
   std::vector<Connection> getConnections();
   std::vector<Connection> connections;
+  void receivePacket(Packet &p);
+  virtual void handlePacket(Packet &p);
+  virtual void forwardPacket(Packet &p);
   
   std::string name;
   int x;
