@@ -11,9 +11,14 @@ public:
   Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB);
   void DoTick();
 
-private:
   std::weak_ptr<Node> nodeA;
+
   std::weak_ptr<Node> nodeB;
-  std::string name;
+  
+  int mLength;
+  std::vector<std::shared_ptr<Packet>> mPackets;
+  std::vector<int> mPacketDistances;
+
+  void sendPacket();
 };
 
