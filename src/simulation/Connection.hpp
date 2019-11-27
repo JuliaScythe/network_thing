@@ -5,6 +5,14 @@
 #include "SimObject.hpp"
 #include <memory>
 #include "Packet.hpp"
+
+struct PacketTransfer {
+  PacketTransfer(Packet &p);
+
+  Packet packet;
+  float progress; // Ranges from 0 to 1
+};
+
 class Node;
 class Connection : public SimObject {
 public:
@@ -16,8 +24,7 @@ public:
   std::weak_ptr<Node> nodeB;
   
   int mLength;
-  std::vector<Packet> mPackets;
-  std::vector<int> mPacketDistances;
+  std::vector<PacketTransfer> mPackets;
 
   void sendPacket(Packet &packet, Node *node);
 
