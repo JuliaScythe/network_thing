@@ -1,7 +1,7 @@
 #include "Node.hpp"
 
-Node::Node(std::vector<Connection> connections) : connections(connections) {
-}
+Node::Node(int x, int y, int sizeX, int sizeY, int r, int g, int b, int a) 
+  : x(x), y(y), sizeX(sizeX), sizeY(sizeY), r(r), g(g), b(b), a(a) {}
 
 
 void Node::addConnection(Connection connection) {
