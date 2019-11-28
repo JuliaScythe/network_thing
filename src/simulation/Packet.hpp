@@ -3,6 +3,7 @@
 #include <memory>
 #include "Node.hpp"
 
+class Node;
 class Packet {
 public:
   Packet(std::weak_ptr<Node> src, std::weak_ptr<Node> dst, unsigned hopLimit, std::vector<unsigned char> payload);
