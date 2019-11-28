@@ -13,7 +13,7 @@ std::optional<Node *> NodeSwitch::findRouteToNode(Node *n) {
 }
 
 void NodeSwitch::forwardPacket(Packet &p) {
-  std::optional<Node *> nextHop = findRouteToNode(p.mDst);
+  std::optional<Node *> nextHop = findRouteToNode(p.mDst.lock().get());
   if (!nextHop) return;
 
   Packet pNew = p;
