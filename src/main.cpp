@@ -20,9 +20,7 @@ int main() {
 
   networkSim.addObject(connection1);
   
-
-  Display display;
-  display.init("Network Simulation", 400, 400);
+  Display display("foobar", 800, 600);
   
   networkSim.DoTick();
 }
