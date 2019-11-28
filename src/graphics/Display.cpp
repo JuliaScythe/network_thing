@@ -23,18 +23,34 @@ Display::Display(const char *title, int width, int height) {
   SDL_RenderClear(m_renderer);
 
   // Test
-  SDL_SetRenderDrawColor(m_renderer, 0, 0, 255, 255);
-  SDL_RWops *x = SDL_RWFromFile("./res/node_basic.svg", "r");
-  SDL_Surface *img = IMG_LoadSVG_RW(x);
-  SDL_Texture *texture = SDL_CreateTextureFromSurface(m_renderer, img);
+  SDL_Texture *texture = createTexture("./res/node_basic.svg");
 
-  SDL_Rect dst = {.x=100, .y=100, .w=200, .h=200};
+  SDL_Rect dst = {.x=100, .y=100, .w=400, .h=765};
 
   SDL_RenderCopy(m_renderer, texture, NULL, &dst);
 
   update();
 
   SDL_Delay(2000);
+}
+
+SDL_Texture *Display::createTexture(const char *path) {
+  SDL_RWops *rwops = SDL_RWFromFile(path, "r");
+  if (!rwops) {
+    throw std::runtime_error(SDL_GetError());
+  }
+
+  SDL_Surface *img = IMG_LoadSVG_RW(rwops);
+  if (!img) {
+    throw std::runtime_error(IMG_GetError());
+  }
+
+  SDL_Texture *texture = SDL_CreateTextureFromSurface(m_renderer, img);
+  if (!texture) {
+    throw std::runtime_error(SDL_GetError());
+  }
+
+  return texture;
 }
 
 void Display::update() {

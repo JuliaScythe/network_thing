@@ -9,8 +9,7 @@ public:
   void update();
   SDL_Renderer *m_renderer;
   SDL_GLContext m_gl;
-  void circle(unsigned x, unsigned y, unsigned radius);
-  void filledCircle(unsigned x, unsigned y, unsigned radius);
+  SDL_Texture *createTexture(const char *path);
 private:
   SDL_Window *m_window;
 };
