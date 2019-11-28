@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include "Node.hpp"
+#include <vector>
 
 class Node;
 class Packet {
