@@ -9,8 +9,8 @@ HDR := $(shell find $(SRC_DIR) -type f -name '*.hpp')
 OBJ := $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(SRC))
 
 CXX := g++
-CXXFLAGS := -Wall -Werror -c -g
-LDFLAGS := $(shell pkg-config --cflags --libs sdl2)
+CXXFLAGS := -Wall -Werror -c -g -std=c++17
+LDFLAGS := $(shell pkg-config --cflags --libs sdl2) -std=c++17
 
 all: network_sim
 
