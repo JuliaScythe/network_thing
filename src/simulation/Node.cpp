@@ -26,4 +26,4 @@ void Node::receivePacket(Packet &p) {
 void Node::handlePacket(Packet &p) {}
 void Node::forwardPacket(Packet &p) {}
 
-// vim: et sw=2
+// vim: sw=2 et

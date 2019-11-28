@@ -12,3 +12,5 @@ public:
   unsigned mHopLimit;
   std::vector<unsigned char> mPayload;
 };
+
+// vim: sw=2 et

@@ -26,3 +26,5 @@ int main() {
   
   networkSim.DoTick();
 }
+
+// vim: sw=2 et

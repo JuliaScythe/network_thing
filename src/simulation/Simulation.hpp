@@ -11,4 +11,5 @@ public:
   std::vector<std::shared_ptr<SimObject>> objects;
   void DoTick();
 };
-// vim: et sw=2
+
+// vim: sw=2 et

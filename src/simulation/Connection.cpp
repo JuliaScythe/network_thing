@@ -13,3 +13,5 @@ void Connection::DoTick() {
 void Connection::sendPacket(Packet &packet, Node *node) {
   mPackets.push_back({packet});
 }
+
+// vim: sw=2 et

@@ -10,3 +10,5 @@ void Simulation::DoTick() {
 void Simulation::addObject(std::shared_ptr<SimObject> object) {
   objects.push_back(object);
 }
+
+// vim: sw=2 et

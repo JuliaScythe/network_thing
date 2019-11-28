@@ -30,6 +30,4 @@ public:
   
 };
 
-    
-
-// vim: et sw=2
+// vim: sw=2 et
