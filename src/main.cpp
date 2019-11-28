@@ -16,7 +16,7 @@ int main() {
   networkSim.addObject(node2);
   networkSim.addObject(node3);
 
-  auto connection1 = std::shared_ptr<SimObject>(new Connection(node1, node2));
+  auto connection1 = std::shared_ptr<SimObject>(new Connection(node1, node2, 0.1f));
 
   networkSim.addObject(connection1);
   

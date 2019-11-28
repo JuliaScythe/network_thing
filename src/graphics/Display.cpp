@@ -19,13 +19,13 @@ Display::Display(const char *title, int width, int height) {
 
   m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
 
-  SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 255);
+  SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
   SDL_RenderClear(m_renderer);
 
   // Test
   SDL_Texture *texture = createTexture("./res/node_basic.svg");
 
-  SDL_Rect dst = {.x=100, .y=100, .w=400, .h=765};
+  SDL_Rect dst = {.x=100, .y=100, .w=100, .h=190};
 
   SDL_RenderCopy(m_renderer, texture, NULL, &dst);
 

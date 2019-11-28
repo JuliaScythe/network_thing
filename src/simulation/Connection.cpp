@@ -1,17 +1,24 @@
 #include "Connection.hpp"
 #include <memory>
-
+#include <vector>
 
 PacketTransfer::PacketTransfer(Packet &p)
   : packet(p), progress(0.0f) {}
 
+PacketTransfer &PacketTransfer::operator=(const PacketTransfer &other) {
+  packet = other.packet;
+  progress = other.progress;
+  return *this;
+}
+
 Connection::Connection(std::weak_ptr<Node> nodeSrc, std::weak_ptr<Node> nodeDst, double deltaProgress) : nodeSrc(nodeSrc), nodeDst(nodeDst), deltaProgress(deltaProgress) {}
 
 void Connection::DoTick() {
-  for (int i=0; i< mPackets.size(); i++) {
+  for (unsigned i = 0; i < mPackets.size(); i++) {
     mPackets[i].progress += deltaProgress;
     if (mPackets[i].progress > 1.0f) {
-        mPackets.erase(mPackets.begin() + (i--));
+      auto x = mPackets.begin() + (i--);
+      mPackets.erase(x);
     }
   }
 }

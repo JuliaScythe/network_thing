@@ -1,15 +1,14 @@
 #pragma once
 
-#include <string>
-#include "Node.hpp"
-#include "SimObject.hpp"
+#include <vector>
 #include <memory>
+#include "SimObject.hpp"
 #include "Packet.hpp"
-
-class Packet;
 
 struct PacketTransfer {
   PacketTransfer(Packet &p);
+
+  PacketTransfer &operator=(const PacketTransfer &other);
 
   Packet &packet;
   float progress; // Ranges from 0 to 1
