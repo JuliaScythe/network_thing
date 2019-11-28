@@ -5,6 +5,8 @@
 #include "SimObject.hpp"
 #include "Packet.hpp"
 
+
+class Packet;
 class Connection;
 class Node : public SimObject {
 public:

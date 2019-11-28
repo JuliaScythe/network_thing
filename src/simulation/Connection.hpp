@@ -6,10 +6,12 @@
 #include <memory>
 #include "Packet.hpp"
 
+class Packet;
+
 struct PacketTransfer {
   PacketTransfer(Packet &p);
 
-  Packet packet;
+  Packet &packet;
   float progress; // Ranges from 0 to 1
 };
 
