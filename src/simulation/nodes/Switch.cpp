@@ -20,8 +20,8 @@ void NodeSwitch::forwardPacket(Packet &p) {
   pNew.mHopLimit--;
 
   for (Connection &c : connections) {
-    if (c.nodeA.lock().get() == nextHop ||
-        c.nodeB.lock().get() == nextHop) {
+    if (c.nodeSrc.lock().get() == nextHop ||
+        c.nodeDst.lock().get() == nextHop) {
       c.sendPacket(pNew, this);
       break;
     }

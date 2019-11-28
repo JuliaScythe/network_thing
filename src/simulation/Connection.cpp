@@ -12,7 +12,7 @@ void Connection::DoTick() {
 }
 
 void Connection::sendPacket(Packet &packet, Node *node) {
-  if (node != nodeSrc) {
+  if (node != nodeSrc.lock().get()) {
     throw new std::runtime_error("Invalid source node!");
   }
 
