@@ -21,11 +21,10 @@ public:
   Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB);
   void DoTick();
 
-  std::weak_ptr<Node> nodeA;
+  std::weak_ptr<Node> nodeSrc;
 
-  std::weak_ptr<Node> nodeB;
+  std::weak_ptr<Node> nodeDst;
   
-  int mLength;
   std::vector<PacketTransfer> mPackets;
 
   void sendPacket(Packet &packet, Node *node);
