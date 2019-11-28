@@ -1,5 +1,5 @@
 .POSIX:
-.PHONY: all clean
+.PHONY: all clean run
 
 BUILD_DIR := build
 SRC_DIR := src
@@ -14,12 +14,17 @@ LDFLAGS := $(shell pkg-config --cflags --libs sdl2) -std=c++17
 
 all: network_sim
 
+run: network_sim
+	./network_sim
+
 clean:
 	rm network_sim
 	rm -rf $(BUILD_DIR)
 
 network_sim: $(OBJ)
 	$(CXX) -o $@ $^ $(LDFLAGS)
+
+
 
 $(BUILD_DIR)/%.o: %.cpp $(HDR)
 	mkdir -p $(shell dirname $@)
