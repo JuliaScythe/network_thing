@@ -29,7 +29,7 @@
      inkscape:cx="28.004629"
      inkscape:cy="561.34703"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="text19"
      showgrid="false"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-edge-midpoints="true"
@@ -54,34 +54,37 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#000000;stroke-width:0.26458332"
-       id="rect10"
-       width="105.07738"
-       height="202.59525"
-       x="42.333332"
-       y="37.708332"
-       ry="4.4099426" />
-    <rect
-       style="fill:#4d4d4d;stroke-width:0.07666311"
-       id="rect15"
-       width="105.07737"
-       height="17.00894"
-       x="-147.41071"
-       y="37.708332"
-       ry="4.4099426"
-       rx="4.4099426"
-       transform="scale(-1,1)" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:72.72400665px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:1.81810009;"
-       x="51.280228"
-       y="204.03145"
-       id="text19"><tspan
-         sodipodi:role="line"
-         id="tspan17"
-         x="51.280228"
-         y="204.03145"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:174.53761292px;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';fill:#f2f2f2;stroke-width:1.81810009;">N</tspan></text>
+    <g
+       id="g44"
+       transform="translate(-1.5119035,-3.690475)">
+      <rect
+         rx="4.4099426"
+         ry="4.4099426"
+         y="3.690475"
+         x="1.5119035"
+         height="202.59525"
+         width="105.07738"
+         id="rect10"
+         style="fill:#000000;stroke-width:0.26458332" />
+      <rect
+         transform="scale(-1,1)"
+         rx="4.4099426"
+         ry="4.4099426"
+         y="3.690475"
+         x="-106.58928"
+         height="17.00894"
+         width="105.07737"
+         id="rect15"
+         style="fill:#4d4d4d;stroke-width:0.07666311" />
+      <g
+         aria-label="N"
+         style="font-style:normal;font-weight:normal;font-size:72.72400665px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:1.81810009"
+         id="text19">
+        <path
+           d="M 85.7111,170.0136 H 63.808675 L 38.326865,87.687749 q 2.641927,28.805521 2.641927,59.485961 V 170.0136 H 22.390081 V 39.96262 h 21.902426 l 25.481809,82.32585 Q 67.132389,93.482943 67.132389,62.71728 V 39.96262 H 85.7111 Z"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:174.53761292px;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';fill:#f2f2f2;stroke-width:1.81810009"
+           id="path84" />
+      </g>
+    </g>
   </g>
 </svg>

@@ -1,6 +1,7 @@
 #include "Connection.hpp"
 #include <memory>
 
+
 PacketTransfer::PacketTransfer(Packet &p)
   : packet(p), progress(0.0f) {}
 
@@ -12,7 +13,7 @@ void Connection::DoTick() {
 
 void Connection::sendPacket(Packet &packet, Node *node) {
   if (node != nodeSrc) {
-      
+    throw new std::runtime_error("Invalid source node!");
   }
 
   mPackets.push_back({packet});
