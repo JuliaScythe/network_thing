@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="397.14285"
+   height="765.71429"
+   viewBox="0 0 105.07738 202.59525"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="28.004629"
-     inkscape:cy="561.34703"
+     inkscape:cx="20.861772"
+     inkscape:cy="204.54166"
      inkscape:document-units="mm"
-     inkscape:current-layer="text19"
+     inkscape:current-layer="g44"
      showgrid="false"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-edge-midpoints="true"
@@ -37,7 +37,12 @@
      inkscape:window-height="724"
      inkscape:window-x="0"
      inkscape:window-y="22"
-     inkscape:window-maximized="0" />
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     units="px" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -53,7 +58,8 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-2.4398804e-8,9.0906881e-6)">
     <g
        id="g44"
        transform="translate(-1.5119035,-3.690475)">
@@ -83,7 +89,8 @@
         <path
            d="M 85.7111,170.0136 H 63.808675 L 38.326865,87.687749 q 2.641927,28.805521 2.641927,59.485961 V 170.0136 H 22.390081 V 39.96262 h 21.902426 l 25.481809,82.32585 Q 67.132389,93.482943 67.132389,62.71728 V 39.96262 H 85.7111 Z"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:174.53761292px;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';fill:#f2f2f2;stroke-width:1.81810009"
-           id="path84" />
+           id="path84"
+           inkscape:connector-curvature="0" />
       </g>
     </g>
   </g>

@@ -5,10 +5,15 @@
 PacketTransfer::PacketTransfer(Packet &p)
   : packet(p), progress(0.0f) {}
 
-Connection::Connection(std::weak_ptr<Node> nodeSrc, std::weak_ptr<Node> nodeDst) : nodeSrc(nodeSrc), nodeDst(nodeDst) {}
+Connection::Connection(std::weak_ptr<Node> nodeSrc, std::weak_ptr<Node> nodeDst, double deltaProgress) : nodeSrc(nodeSrc), nodeDst(nodeDst), deltaProgress(deltaProgress) {}
 
 void Connection::DoTick() {
-  return;
+  for (int i=0; i< mPackets.size(); i++) {
+    mPackets[i].progress += deltaProgress;
+    if (mPackets[i].progress > 1.0f) {
+        mPackets.erase(mPackets.begin() + (i--));
+    }
+  }
 }
 
 void Connection::sendPacket(Packet &packet, Node *node) {

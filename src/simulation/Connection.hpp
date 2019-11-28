@@ -18,13 +18,14 @@ struct PacketTransfer {
 class Node;
 class Connection : public SimObject {
 public:
-  Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB);
+  Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB, double deltaProgress);
   void DoTick();
 
   std::weak_ptr<Node> nodeSrc;
 
   std::weak_ptr<Node> nodeDst;
   
+  double deltaProgress; 
   std::vector<PacketTransfer> mPackets;
 
   void sendPacket(Packet &packet, Node *node);
