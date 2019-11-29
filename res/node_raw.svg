@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
-   sodipodi:docname="node_router.svg">
+   sodipodi:docname="node_raw.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -33,10 +33,10 @@
      showgrid="false"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-edge-midpoints="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="724"
-     inkscape:window-x="0"
-     inkscape:window-y="22"
+     inkscape:window-width="668"
+     inkscape:window-height="704"
+     inkscape:window-x="688"
+     inkscape:window-y="32"
      inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -86,15 +86,17 @@
          aria-label="N"
          style="font-style:normal;font-weight:normal;font-size:72.72400665px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:1.81810009"
          id="text19">
-        <g
-           aria-label="R"
+        <text
+           xml:space="preserve"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:162.76457214px;line-height:1.25;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:7.39805746"
-           id="text22">
-          <path
-             d="M 86.039234,165.62743 H 64.422065 L 63.706791,155.13674 Q 61.958343,128.0358 50.990808,112.93557 h -7.629589 v 52.69186 H 22.061949 V 44.348746 H 53.13663 q 14.543905,0 22.411919,8.344863 7.868014,8.344864 7.868014,26.306188 0,21.537693 -13.828631,29.644133 14.067056,19.23292 15.736028,43.71119 z M 62.037818,78.999797 q 0,-8.583288 -2.384247,-12.557032 -2.304772,-3.973744 -8.980662,-3.973744 h -7.31169 V 94.8153 h 7.31169 q 6.67589,0 8.980662,-3.973744 2.384247,-3.973745 2.384247,-11.841759 z"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';text-align:center;text-anchor:middle;fill:#f2f2f2;fill-opacity:1;stroke-width:7.39805746"
-             id="path1473" />
-        </g>
+           x="54.090332"
+           y="165.62743"
+           id="text22"><tspan
+             sodipodi:role="line"
+             id="tspan20"
+             x="54.090332"
+             y="165.62743"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';text-align:center;text-anchor:middle;fill:#f2f2f2;fill-opacity:1;stroke-width:7.39805746">N</tspan></text>
       </g>
     </g>
   </g>

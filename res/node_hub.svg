@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="172.42523"
+     inkscape:cx="-80.112905"
      inkscape:cy="410.89027"
      inkscape:document-units="mm"
      inkscape:current-layer="text19"
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -86,17 +86,15 @@
          aria-label="N"
          style="font-style:normal;font-weight:normal;font-size:72.72400665px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:1.81810009"
          id="text19">
-        <text
-           xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:162.76457214px;line-height:1.25;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';letter-spacing:0px;word-spacing:0px;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:7.39805746;"
-           x="13.399188"
-           y="165.62743"
-           id="text22"><tspan
-             sodipodi:role="line"
-             id="tspan20"
-             x="13.399188"
-             y="165.62743"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';fill:#f2f2f2;stroke-width:7.39805746;fill-opacity:1;">H</tspan></text>
+        <g
+           aria-label="H"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:162.76457214px;line-height:1.25;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';letter-spacing:0px;word-spacing:0px;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:7.39805746"
+           id="text22">
+          <path
+             d="m 85.085538,165.62743 h -21.29927 v -56.0298 H 44.31492 v 56.0298 H 23.01565 V 44.348746 H 44.31492 V 91.318405 H 63.786268 V 44.348746 h 21.29927 z"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';fill:#f2f2f2;fill-opacity:1;stroke-width:7.39805746"
+             id="path2137" />
+        </g>
       </g>
     </g>
   </g>

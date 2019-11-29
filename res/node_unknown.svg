@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -86,17 +86,15 @@
          aria-label="N"
          style="font-style:normal;font-weight:normal;font-size:72.72400665px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:1.81810009"
          id="text19">
-        <text
-           xml:space="preserve"
+        <g
+           aria-label="?"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:162.76457214px;line-height:1.25;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:7.39805746"
-           x="54.050594"
-           y="165.62743"
-           id="text22"><tspan
-             sodipodi:role="line"
-             id="tspan20"
-             x="54.050594"
-             y="165.62743"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';text-align:center;text-anchor:middle;fill:#f2f2f2;fill-opacity:1;stroke-width:7.39805746">?</tspan></text>
+           id="text22">
+          <path
+             d="m 85.602125,72.562331 q 0,9.139613 -5.086393,16.769202 L 68.197125,107.37233 q -2.463722,3.57637 -2.463722,8.66277 v 4.37111 h -21.29927 v -4.45059 q 0,-8.98066 5.404292,-17.007626 L 60.96491,82.735117 q 3.337945,-5.165868 3.337945,-10.967534 0,-5.245343 -2.781621,-8.106439 -2.781621,-2.861096 -7.073265,-2.861096 -9.775412,0 -15.894978,12.874932 L 22.499063,62.707445 q 11.20596,-20.107147 32.028381,-20.107147 13.749155,0 22.411918,8.821713 8.662763,8.821713 8.662763,21.14032 z M 68.753449,153.78567 q 0,5.88114 -3.814795,9.61646 -3.73532,3.73532 -9.695936,3.73532 -5.801667,0 -9.616462,-3.73532 -3.73532,-3.73532 -3.73532,-9.61646 0,-5.88114 3.73532,-9.61646 3.814795,-3.8148 9.616462,-3.8148 5.960616,0 9.695936,3.8148 3.814795,3.73532 3.814795,9.61646 z"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';text-align:center;text-anchor:middle;fill:#f2f2f2;fill-opacity:1;stroke-width:7.39805746"
+             id="path875" />
+        </g>
       </g>
     </g>
   </g>

@@ -26,17 +26,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="172.42523"
+     inkscape:cx="-80.112905"
      inkscape:cy="410.89027"
      inkscape:document-units="mm"
      inkscape:current-layer="text19"
      showgrid="false"
      inkscape:snap-bbox="true"
      inkscape:snap-bbox-edge-midpoints="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="724"
-     inkscape:window-x="0"
-     inkscape:window-y="22"
+     inkscape:window-width="668"
+     inkscape:window-height="704"
+     inkscape:window-x="688"
+     inkscape:window-y="32"
      inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -86,17 +86,15 @@
          aria-label="N"
          style="font-style:normal;font-weight:normal;font-size:72.72400665px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:1.81810009"
          id="text19">
-        <text
-           xml:space="preserve"
+        <g
+           aria-label="N"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:162.76457214px;line-height:1.25;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#f2f2f2;fill-opacity:1;stroke:none;stroke-width:7.39805746"
-           x="54.090332"
-           y="165.62743"
-           id="text22"><tspan
-             sodipodi:role="line"
-             id="tspan20"
-             x="54.090332"
-             y="165.62743"
-             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';text-align:center;text-anchor:middle;fill:#f2f2f2;fill-opacity:1;stroke-width:7.39805746">N</tspan></text>
+           id="text22">
+          <path
+             d="M 83.575516,165.62743 H 63.150469 L 39.387478,88.854684 q 2.463721,26.862516 2.463721,55.473476 v 21.29927 H 24.525673 V 44.348746 H 44.95072 L 68.713712,121.12149 Q 66.24999,94.258976 66.24999,65.568541 V 44.348746 h 17.325526 z"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'PragmataPro Liga';-inkscape-font-specification:'PragmataPro Liga Bold';text-align:center;text-anchor:middle;fill:#f2f2f2;fill-opacity:1;stroke-width:7.39805746"
+             id="path2765" />
+        </g>
       </g>
     </g>
   </g>
