@@ -55,6 +55,8 @@ void Display::mainLoop() {
     std::shared_ptr<Node> n1 = std::make_shared<Node>(100, 100, 50, 50);
     std::shared_ptr<Node> n2 = std::make_shared<Node>(500, 300, 50, 50);
     std::shared_ptr<Connection> c = std::make_shared<Connection>(n1, n2, 0.01f);
+    Packet p(n1, n2, 32, {0});
+    c->sendPacket(p, n1.get());
     m_sim.lock()->addObject(n1);
     m_sim.lock()->addObject(n2);
     m_sim.lock()->addObject(c);
