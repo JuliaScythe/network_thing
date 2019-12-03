@@ -21,5 +21,5 @@ void BidirectionalConnection::doTick() {
       mReversePackets.erase(x);
     }
   
-
+  }
 }
