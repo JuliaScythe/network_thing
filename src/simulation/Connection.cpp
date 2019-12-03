@@ -2,6 +2,11 @@
 #include <memory>
 #include <vector>
 
+#include "../graphics/Display.hpp"
+
+#include <SDL2/SDL.h>
+#include "Node.hpp"
+
 PacketTransfer::PacketTransfer(Packet &p)
   : packet(p), progress(0.0f) {}
 
@@ -29,6 +34,12 @@ void Connection::sendPacket(Packet &packet, Node *node) {
   }
 
   mPackets.push_back({packet});
+}
+
+void Connection::doRender() {
+  auto r = Display::inst->m_renderer;
+
+  SDL_RenderDrawLine(r, nodeSrc.lock()->x, nodeSrc.lock()->y, nodeDst.lock()->x, nodeDst.lock()->y);
 }
 
 // vim: sw=2 et
