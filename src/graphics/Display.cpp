@@ -5,8 +5,6 @@
 #include <stdexcept>
 #include <cmath>
 
-#define TAU 6.28318
-
 Display::Display(const char *title, int width, int height) {
   if (SDL_Init(SDL_INIT_VIDEO)) {
     throw std::runtime_error(SDL_GetError());
@@ -20,27 +18,29 @@ Display::Display(const char *title, int width, int height) {
 
   m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
 
-  SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
-  SDL_RenderClear(m_renderer);
-
-  // Test
-  SDL_Texture *texture = createTexture("./res/node_basic.svg");
-
-  SDL_Rect dst = {.x=100, .y=100, .w=100, .h=190};
-
-  SDL_RenderCopy(m_renderer, texture, NULL, &dst);
-
-  update();
-
-  SDL_Delay(2000);
 }
 
 void Display::mainLoop() {
   Simulation sim;
-  for (auto &obj : sim.objects) {
-    obj->doRender();
+  bool running = true;
+  bool x = false;
+  while (running) {
+    SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
+    SDL_RenderClear(m_renderer);
+
+    for (auto &obj : sim.objects) {
+      obj->doRender();
+    }
+
+    update();
+
+    SDL_Event event;
+    while (SDL_PollEvent(&event)) {
+      if (event.type == SDL_QUIT) {
+        running = false;
+      }
+    }
   }
-  update();
 }
 
 SDL_Texture *Display::createTexture(const char *path) {
