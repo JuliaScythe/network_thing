@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <SDL2/SDL.h>
 #include "Connection.hpp"
 #include "SimObject.hpp"
 #include "Packet.hpp"
@@ -12,6 +13,7 @@ public:
   Node(int x, int y, int sizeX, int sizeY);
   
   void doTick();
+  void doRender();
   void addConnection(Connection connection);
   std::vector<Connection> getConnections();
   std::vector<Connection> connections;
@@ -24,6 +26,9 @@ public:
   int y;
   int sizeX;
   int sizeY;
+
+private:
+  static SDL_Texture *m_texture;
 };
 
 // vim: sw=2 et

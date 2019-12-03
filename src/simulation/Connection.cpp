@@ -39,6 +39,7 @@ void Connection::sendPacket(Packet &packet, Node *node) {
 void Connection::doRender() {
   auto r = Display::inst->m_renderer;
 
+  SDL_SetRenderDrawColor(r, 0, 0, 0, 255);
   SDL_RenderDrawLine(r, nodeSrc.lock()->x, nodeSrc.lock()->y, nodeDst.lock()->x, nodeDst.lock()->y);
 }
 
