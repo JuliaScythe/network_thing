@@ -6,23 +6,11 @@
 #include <iostream>
 
 int main() {
-  Simulation networkSim;
+  Display display("Network Display", 800, 600);
   
-  auto node1 = std::make_shared<Node>(100, 100, 10, 10, 255, 255, 0, 255);
-  auto node2 = std::make_shared<Node>(200, 200, 10, 10, 255, 255, 0, 255);
-  auto node3 = std::make_shared<Node>(300, 300, 10, 10, 255, 255, 0, 255);
+  display.mainLoop();
 
-  networkSim.addObject(node1);
-  networkSim.addObject(node2);
-  networkSim.addObject(node3);
-
-  auto connection1 = std::shared_ptr<SimObject>(new Connection(node1, node2, 0.1f));
-
-  networkSim.addObject(connection1);
-  
-  Display display("foobar", 800, 600);
-  
-  networkSim.DoTick();
+  std::cout << "Done" << std::endl;
 }
 
 // vim: sw=2 et
