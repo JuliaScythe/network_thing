@@ -6,6 +6,8 @@
 #include <cmath>
 
 Display::Display(const char *title, int width, int height) {
+  Display::inst = this;
+
   if (SDL_Init(SDL_INIT_VIDEO)) {
     throw std::runtime_error(SDL_GetError());
   }

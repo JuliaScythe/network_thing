@@ -11,6 +11,8 @@ public:
   SDL_Renderer *m_renderer;
   SDL_GLContext m_gl;
   SDL_Texture *createTexture(const char *path);
+
+  static Display *inst;
 private:
   SDL_Window *m_window;
 };
