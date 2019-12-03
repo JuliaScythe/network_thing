@@ -1,9 +1,13 @@
 #include "Display.hpp"
 #include "../simulation/Simulation.hpp"
+#include "../simulation/Node.hpp"
+#include "../simulation/Connection.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <stdexcept>
 #include <cmath>
+
+Display *Display::inst = nullptr;
 
 Display::Display(const char *title, int width, int height) {
   Display::inst = this;
@@ -24,8 +28,17 @@ Display::Display(const char *title, int width, int height) {
 
 void Display::mainLoop() {
   Simulation sim;
+
+  {
+    std::shared_ptr<Node> n1 = std::make_shared<Node>(100, 100, 50, 50);
+    std::shared_ptr<Node> n2 = std::make_shared<Node>(500, 300, 50, 50);
+    std::shared_ptr<Connection> c = std::make_shared<Connection>(n1, n2, 0.01f);
+    sim.addObject(n1);
+    sim.addObject(n2);
+    sim.addObject(c);
+  }
+
   bool running = true;
-  bool x = false;
   while (running) {
     SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
     SDL_RenderClear(m_renderer);

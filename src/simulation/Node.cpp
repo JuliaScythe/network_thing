@@ -1,7 +1,7 @@
 #include "Node.hpp"
 
-Node::Node(int x, int y, int sizeX, int sizeY, int r, int g, int b, int a) 
-  : x(x), y(y), sizeX(sizeX), sizeY(sizeY), r(r), g(g), b(b), a(a) {}
+Node::Node(int x, int y, int sizeX, int sizeY) 
+  : x(x), y(y), sizeX(sizeX), sizeY(sizeY) {}
 
 
 void Node::addConnection(Connection connection) {

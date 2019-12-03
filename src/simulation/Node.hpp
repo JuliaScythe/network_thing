@@ -9,7 +9,7 @@ class Packet;
 class Connection;
 class Node : public SimObject {
 public:
-  Node(int x, int y, int sizeX, int sizeY, int r, int g, int b, int a);
+  Node(int x, int y, int sizeX, int sizeY);
   
   void doTick();
   void addConnection(Connection connection);
@@ -24,11 +24,6 @@ public:
   int y;
   int sizeX;
   int sizeY;
-  int r;
-  int g;
-  int b;
-  int a;
-  
 };
 
 // vim: sw=2 et
