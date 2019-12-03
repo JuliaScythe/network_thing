@@ -10,6 +10,8 @@
 #include <thread>
 #include <mutex>
 
+#define TICK_PER_SECOND 50
+
 Display *Display::inst = nullptr;
 
 Display::Display(const char *title, int width, int height) {
@@ -29,24 +31,42 @@ Display::Display(const char *title, int width, int height) {
 
 }
 
-void Display::mainLoop() {
-  locking_ptr<Simulation> sim;
+static void tickingThread() {
+  using tickDuration = std::chrono::duration<int64_t, std::ratio<1, TICK_PER_SECOND>>;
 
+  auto next = std::chrono::system_clock::now();
+  auto last = next - tickDuration{1};
+  while (!Display::inst->m_close) {
+    std::this_thread::sleep_until(next);
+    Display::inst->doTick();
+    last = next;
+    next += tickDuration{1};
+  }
+}
+
+void Display::doTick() {
+  for (auto &obj : m_sim.lock()->objects) {
+    obj->doTick();
+  }
+}
+
+void Display::mainLoop() {
   {
     std::shared_ptr<Node> n1 = std::make_shared<Node>(100, 100, 50, 50);
     std::shared_ptr<Node> n2 = std::make_shared<Node>(500, 300, 50, 50);
     std::shared_ptr<Connection> c = std::make_shared<Connection>(n1, n2, 0.01f);
-    sim.lock()->addObject(n1);
-    sim.lock()->addObject(n2);
-    sim.lock()->addObject(c);
+    m_sim.lock()->addObject(n1);
+    m_sim.lock()->addObject(n2);
+    m_sim.lock()->addObject(c);
   }
 
-  bool running = true;
-  while (running) {
+  std::thread ticker(tickingThread);
+
+  while (!m_close) {
     SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
     SDL_RenderClear(m_renderer);
 
-    for (auto &obj : sim.lock()->objects) {
+    for (auto &obj : m_sim.lock()->objects) {
       obj->doRender();
     }
 
@@ -55,10 +75,12 @@ void Display::mainLoop() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
       if (event.type == SDL_QUIT) {
-        running = false;
+        m_close = true;
       }
     }
   }
+
+  ticker.join();
 }
 
 SDL_Texture *Display::createTexture(const char *path) {

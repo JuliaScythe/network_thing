@@ -10,7 +10,7 @@ OBJ := $(patsubst %.cpp,$(BUILD_DIR)/%.o,$(SRC))
 
 CXX := g++
 CXXFLAGS := -Wall -Werror -c -g -std=c++17
-LDFLAGS := $(shell pkg-config --libs sdl2 SDL2_image) -std=c++17
+LDFLAGS := $(shell pkg-config --libs sdl2 SDL2_image) -lpthread -std=c++17
 
 all: network_sim
 
