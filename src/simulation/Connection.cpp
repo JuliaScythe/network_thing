@@ -13,7 +13,7 @@ PacketTransfer &PacketTransfer::operator=(const PacketTransfer &other) {
 
 Connection::Connection(std::weak_ptr<Node> nodeSrc, std::weak_ptr<Node> nodeDst, double deltaProgress) : nodeSrc(nodeSrc), nodeDst(nodeDst), deltaProgress(deltaProgress) {}
 
-void Connection::DoTick() {
+void Connection::doTick() {
   for (unsigned i = 0; i < mPackets.size(); i++) {
     mPackets[i].progress += deltaProgress;
     if (mPackets[i].progress > 1.0f) {

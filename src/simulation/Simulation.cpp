@@ -1,9 +1,9 @@
 #include "Simulation.hpp"
 
 
-void Simulation::DoTick() {
+void Simulation::doTick() {
 	for (auto &x : objects) {
-		x->DoTick();
+		x->doTick();
 	}
 }
 

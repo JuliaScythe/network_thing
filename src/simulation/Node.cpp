@@ -12,7 +12,7 @@ std::vector<Connection> Node::getConnections() {
   return connections;
 }
 
-void Node::DoTick() {
+void Node::doTick() {
   return;
 }
 

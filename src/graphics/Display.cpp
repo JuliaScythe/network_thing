@@ -1,4 +1,5 @@
 #include "Display.hpp"
+#include "../simulation/Simulation.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <stdexcept>
@@ -32,6 +33,14 @@ Display::Display(const char *title, int width, int height) {
   update();
 
   SDL_Delay(2000);
+}
+
+void Display::mainLoop() {
+  Simulation sim;
+  for (auto &obj : sim.objects) {
+    obj->doRender();
+  }
+  update();
 }
 
 SDL_Texture *Display::createTexture(const char *path) {

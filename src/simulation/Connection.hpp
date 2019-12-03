@@ -18,7 +18,7 @@ class Node;
 class Connection : public SimObject {
 public:
   Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB, double deltaProgress);
-  void DoTick();
+  void doTick();
 
   std::weak_ptr<Node> nodeSrc;
 

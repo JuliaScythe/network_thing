@@ -7,6 +7,7 @@ public:
   Display(const char *title, int width, int height);
   ~Display();
   void update();
+  void mainLoop();
   SDL_Renderer *m_renderer;
   SDL_GLContext m_gl;
   SDL_Texture *createTexture(const char *path);

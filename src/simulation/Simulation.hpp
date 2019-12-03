@@ -9,7 +9,7 @@ public:
   void addObject(std::shared_ptr<SimObject> object);
 
   std::vector<std::shared_ptr<SimObject>> objects;
-  void DoTick();
+  void doTick();
 };
 
 // vim: sw=2 et

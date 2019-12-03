@@ -11,6 +11,8 @@ int main() {
   display.mainLoop();
 
   std::cout << "Done" << std::endl;
+
+  return 0;
 }
 
 // vim: sw=2 et

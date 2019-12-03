@@ -11,7 +11,7 @@ class Node : public SimObject {
 public:
   Node(int x, int y, int sizeX, int sizeY, int r, int g, int b, int a);
   
-  void DoTick();
+  void doTick();
   void addConnection(Connection connection);
   std::vector<Connection> getConnections();
   std::vector<Connection> connections;

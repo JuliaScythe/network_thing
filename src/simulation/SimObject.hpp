@@ -2,7 +2,8 @@
 
 class SimObject {
 public:	
-  virtual void DoTick() = 0;
+  virtual void doTick() = 0;
+  virtual void doRender();
 };
 
 // vim: sw=2 et
