@@ -11,7 +11,7 @@ struct RoutingTableEntry {
 class NodeSwitch : public Node {
 public:
   NodeSwitch(int x, int y, int sizeX, int sizeY, int r, int g, int b, int a);
-  void forwardPacket(Packet &p) override;
+  void forwardPacket(Packet &p, Connection *c) override;
 private:
   std::optional<Node *> findRouteToNode(Node *n);
   std::vector<RoutingTableEntry> mRoutingTable;

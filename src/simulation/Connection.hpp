@@ -18,8 +18,8 @@ class Node;
 class Connection : public SimObject {
 public:
   Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB, double deltaProgress);
-  void doTick();
-  void doRender();
+  virtual void doTick();
+  virtual void doRender();
   std::weak_ptr<Node> mNodeA;
   std::weak_ptr<Node> mNodeB;
   int getLayer();
@@ -30,8 +30,7 @@ public:
   double mDeltaProgress; 
   std::vector<PacketTransfer> mPackets;
 
-  void sendPacket(Packet &packet, Node *node);
-
+  virtual void sendPacket(Packet &packet, Node *node);
 };
 
 // vim: sw=2 et

@@ -15,12 +15,12 @@ public:
   virtual void doTick();
   virtual void doRender();
   std::vector<Connection *> connections;
-  void receivePacket(Packet &p);
-  virtual void handlePacket(Packet &p);
-  virtual void forwardPacket(Packet &p);
+  void receivePacket(Packet &p, Connection *c);
+  virtual void handlePacket(Packet &p, Connection *c);
+  virtual void forwardPacket(Packet &p, Connection *c);
 
-  int sizeX();
-  int sizeY();
+  virtual int sizeX();
+  virtual int sizeY();
   
   std::string mName;
   int mX;
@@ -29,10 +29,6 @@ public:
 
 private:
   int m_width;
-
-  static SDL_Texture *s_texture;
-  static int s_txt_width;
-  static int s_txt_height;
 };
 
 // vim: sw=2 et

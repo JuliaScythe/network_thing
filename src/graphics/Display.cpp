@@ -1,8 +1,10 @@
 #include "Display.hpp"
+#include "Texture.hpp"
 #include "../simulation/nodes/Hub.hpp"
 #include "../simulation/Simulation.hpp"
 #include "../simulation/Node.hpp"
 #include "../simulation/Connection.hpp"
+#include "../simulation/BidirectionalConnection.hpp"
 #include "../locking_ptr.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -12,7 +14,7 @@
 #include <mutex>
 #include <algorithm>
 #include <iostream>
-#define TICK_PER_SECOND 50
+#define TICK_PER_SECOND 100
 
 Display *Display::inst = nullptr;
 
@@ -31,6 +33,7 @@ Display::Display(const char *title, int width, int height) {
 
   m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
 
+  Texture::initAll();
 }
 
 static void tickingThread() {
@@ -54,26 +57,33 @@ void Display::doTick() {
 
 void Display::mainLoop() {
   {
-    std::shared_ptr<Node> n1 = std::make_shared<Node>(100, 100, 50);
-    std::shared_ptr<Node> n2 = std::make_shared<Node>(500, 500, 50);
-    std::shared_ptr<NodeHub> h1 = std::make_shared<NodeHub>(300, 300, 100);
-    std::shared_ptr<NodeHub> h2 = std::make_shared<NodeHub>(400, 400, 100);
+    std::shared_ptr<Node> n1 = std::make_shared<Node>(100, 100, 30);
+    std::shared_ptr<Node> n2 = std::make_shared<Node>(500, 500, 30);
+
+    std::shared_ptr<NodeHub> h1 = std::make_shared<NodeHub>(300, 300, 30);
+    std::shared_ptr<NodeHub> h2 = std::make_shared<NodeHub>(400, 400, 30);
+    std::shared_ptr<NodeHub> h3 = std::make_shared<NodeHub>(350, 250, 30);
 
     std::shared_ptr<Connection> c1 = std::make_shared<Connection>(n1, h1, 0.01f);
-    std::shared_ptr<Connection> c2 = std::make_shared<Connection>(h1, h2, 0.01f);
-    std::shared_ptr<Connection> c3 = std::make_shared<Connection>(h2, n2, 0.01f);
+    std::shared_ptr<BidirectionalConnection> c2 = std::make_shared<BidirectionalConnection>(h1, h2, 0.01f);
+    std::shared_ptr<BidirectionalConnection> c3 = std::make_shared<BidirectionalConnection>(h2, h3, 0.01f);
+    std::shared_ptr<BidirectionalConnection> c4 = std::make_shared<BidirectionalConnection>(h3, h1, 0.01f);
+    std::shared_ptr<Connection> c5 = std::make_shared<Connection>(h2, n2, 0.01f);
 
     m_sim.lock()->addObject(n1);
     m_sim.lock()->addObject(n2);
 
     m_sim.lock()->addObject(h1);
     m_sim.lock()->addObject(h2);
+    m_sim.lock()->addObject(h3);
 
     m_sim.lock()->addObject(c1);
     m_sim.lock()->addObject(c2);
     m_sim.lock()->addObject(c3);
+    m_sim.lock()->addObject(c4);
+    m_sim.lock()->addObject(c5);
 
-    Packet p(n1, n2, 32, {0});
+    Packet p(n1, n2, 16, {0});
     c1->sendPacket(p, n1.get());
   }
 

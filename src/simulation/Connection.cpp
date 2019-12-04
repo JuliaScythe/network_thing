@@ -26,7 +26,7 @@ void Connection::doTick() {
   for (unsigned i = 0; i < mPackets.size(); i++) {
     mPackets[i].progress += mDeltaProgress;
     if (mPackets[i].progress > 1.0f) {
-      mNodeB.lock()->receivePacket(mPackets[i].packet);
+      mNodeB.lock()->receivePacket(mPackets[i].packet, this);
       auto x = mPackets.begin() + (i--);
       mPackets.erase(x);
     }
