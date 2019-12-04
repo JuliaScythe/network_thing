@@ -10,7 +10,7 @@ class Packet;
 class Connection;
 class Node : public SimObject {
 public:
-  Node(int x, int y, int sizeX, int sizeY);
+  Node(int x, int y, int width);
   
   void doTick();
   void doRender();
@@ -18,15 +18,21 @@ public:
   void receivePacket(Packet &p);
   virtual void handlePacket(Packet &p);
   virtual void forwardPacket(Packet &p);
+
+  int sizeX();
+  int sizeY();
   
   std::string name;
   int x;
   int y;
-  int sizeX;
-  int sizeY;
+  float scale;
 
 private:
-  static SDL_Texture *m_texture;
+  int m_width;
+
+  static SDL_Texture *s_texture;
+  static int s_txt_width;
+  static int s_txt_height;
 };
 
 // vim: sw=2 et

@@ -44,26 +44,20 @@ void Connection::sendPacket(Packet &packet, Node *node) {
 void Connection::doRender() {
   auto r = Display::inst->m_renderer;
 
-  {
-    SDL_SetRenderDrawColor(r, 0, 0, 0, 255);
-    int x1 = nodeSrc.lock()->x + nodeSrc.lock()->sizeX / 2;
-    int y1 = nodeSrc.lock()->y + nodeSrc.lock()->sizeY / 2;
-    int x2 = nodeDst.lock()->x + nodeDst.lock()->sizeX / 2;
-    int y2 = nodeDst.lock()->y + nodeDst.lock()->sizeY / 2;
-    SDL_RenderDrawLine(r, x1, y1, x2, y2);
-  }
+  int x1 = nodeSrc.lock()->x + nodeSrc.lock()->sizeX() / 2;
+  int y1 = nodeSrc.lock()->y + nodeSrc.lock()->sizeY() / 2;
+  int x2 = nodeDst.lock()->x + nodeDst.lock()->sizeX() / 2;
+  int y2 = nodeDst.lock()->y + nodeDst.lock()->sizeY() / 2;
+
+  SDL_SetRenderDrawColor(r, 0, 0, 0, 255);
+  SDL_RenderDrawLine(r, x1, y1, x2, y2);
 
   SDL_SetRenderDrawColor(r, 255, 0, 0, 255);
 
-  int startX = nodeSrc.lock()->x + nodeSrc.lock()->sizeX / 2;
-  int startY = nodeSrc.lock()->y + nodeSrc.lock()->sizeY / 2;
-  int endX = nodeDst.lock()->x + nodeDst.lock()->sizeX / 2;
-  int endY = nodeDst.lock()->y + nodeDst.lock()->sizeY / 2;
-
   for (auto &p : mPackets) {
     SDL_Rect rect;
-    rect.x = startX + (endX - startX) * p.progress - 25;
-    rect.y = startY + (endY - startY) * p.progress - 25;
+    rect.x = x1 + (x2 - x1) * p.progress - 25;
+    rect.y = y1 + (y2 - y1) * p.progress - 25;
     rect.w = 50;
     rect.h = 50;
     SDL_RenderFillRect(r, &rect);

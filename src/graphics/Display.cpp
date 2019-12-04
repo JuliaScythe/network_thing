@@ -53,10 +53,10 @@ void Display::doTick() {
 
 void Display::mainLoop() {
   {
-    std::shared_ptr<Node> n1 = std::make_shared<Node>(100, 100, 50, 50);
-    std::shared_ptr<Node> n2 = std::make_shared<Node>(500, 500, 50, 50);
-    std::shared_ptr<NodeHub> h1 = std::make_shared<NodeHub>(300, 300, 70, 70);
-    std::shared_ptr<NodeHub> h2 = std::make_shared<NodeHub>(400, 400, 70, 70);
+    std::shared_ptr<Node> n1 = std::make_shared<Node>(100, 100, 50);
+    std::shared_ptr<Node> n2 = std::make_shared<Node>(500, 500, 50);
+    std::shared_ptr<NodeHub> h1 = std::make_shared<NodeHub>(300, 300, 100);
+    std::shared_ptr<NodeHub> h2 = std::make_shared<NodeHub>(400, 400, 100);
 
     std::shared_ptr<Connection> c1 = std::make_shared<Connection>(n1, h1, 0.01f);
     std::shared_ptr<Connection> c2 = std::make_shared<Connection>(h1, h2, 0.01f);
