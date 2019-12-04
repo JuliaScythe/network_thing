@@ -12,8 +12,8 @@ class Node : public SimObject {
 public:
   Node(int x, int y, int width);
   
-  void doTick();
-  void doRender();
+  virtual void doTick();
+  virtual void doRender();
   std::vector<Connection *> connections;
   void receivePacket(Packet &p);
   virtual void handlePacket(Packet &p);
