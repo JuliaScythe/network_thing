@@ -10,6 +10,7 @@
 #include <cmath>
 #include <thread>
 #include <mutex>
+#include <algorithm>
 
 #define TICK_PER_SECOND 50
 
@@ -81,6 +82,10 @@ void Display::mainLoop() {
   while (!m_close) {
     SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
     SDL_RenderClear(m_renderer);
+    
+    //Sort the list to ensure objects are rendered in order
+    std::sort(m_sim.lock()->objects.begin(), m_sim.lock()->objects.end(), SimObject::compareLayers);
+    printf("%ld", m_sim.lock()->objects.size());
 
     for (auto &obj : m_sim.lock()->mObjects) {
       obj->doRender();

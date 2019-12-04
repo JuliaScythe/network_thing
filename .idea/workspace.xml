@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="32a3e720-2070-4b71-b1c6-dc313682c141" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/graphics/Display.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Display.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simulation/SimObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/simulation/SimObject.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1UW2nXBC9U4Hm0PVQPFo55uNZ2q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/network_sim" />
+    <property name="settings.editor.selected.configurable" value="CLionExternalConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="make" type="CLionExternalRunConfiguration" factoryName="Application" nameIsGenerated="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="network_thing" TARGET_NAME="make" CONFIG_NAME="make" RUN_PATH="$PROJECT_DIR$/network_sim">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32a3e720-2070-4b71-b1c6-dc313682c141" name="Default Changelist" comment="" />
+      <created>1575458197311</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575458197311</updated>
+      <workItem from="1575458213587" duration="1099000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="357" y="98" width="641" height="542" key="#Unnamed" timestamp="1575458347176">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="357" y="98" width="641" height="542" key="#Unnamed/0.0.1366.768@0.0.1366.768" timestamp="1575458347176" />
+    <state x="141" y="-3" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575458374929">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="141" y="-3" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1575458374929" />
+    <state x="456" y="206" width="505" height="328" key="#com.intellij.tools.ToolEditorDialog" timestamp="1575458372036">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="456" y="206" width="505" height="328" key="#com.intellij.tools.ToolEditorDialog/0.0.1366.768@0.0.1366.768" timestamp="1575458372036" />
+    <state x="460" y="109" width="424" height="472" key="FileChooserDialogImpl" timestamp="1575458343789">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="460" y="109" width="424" height="472" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1575458343789" />
+    <state width="1320" height="223" key="GridCell.Tab.0.bottom" timestamp="1575459316306">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="223" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1575459316306" />
+    <state width="1320" height="223" key="GridCell.Tab.0.center" timestamp="1575459316306">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="223" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1575459316306" />
+    <state width="1320" height="223" key="GridCell.Tab.0.left" timestamp="1575459316305">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="223" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1575459316305" />
+    <state width="1320" height="223" key="GridCell.Tab.0.right" timestamp="1575459316306">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="223" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1575459316306" />
+    <state width="1320" height="223" key="GridCell.Tab.1.bottom" timestamp="1575459316307">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="223" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1575459316307" />
+    <state width="1320" height="223" key="GridCell.Tab.1.center" timestamp="1575459316307">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="223" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1575459316307" />
+    <state width="1320" height="223" key="GridCell.Tab.1.left" timestamp="1575459316306">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="223" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1575459316306" />
+    <state width="1320" height="223" key="GridCell.Tab.1.right" timestamp="1575459316307">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1320" height="223" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1575459316307" />
+    <state x="172" y="-18" key="SettingsEditor" timestamp="1575458373584">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="172" y="-18" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1575458373584" />
+    <state x="343" y="184" key="com.intellij.ide.util.TipDialog" timestamp="1575458237080">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="343" y="184" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1575458237080" />
+    <state x="599" y="114" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey" timestamp="1575458372750">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="599" y="114" key="com.intellij.tools.ToolSelectDialog.dimensionServiceKey/0.0.1366.768@0.0.1366.768" timestamp="1575458372750" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/simulation/SimObject.cpp</url>
+          <line>11</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

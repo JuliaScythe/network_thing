@@ -22,6 +22,7 @@ public:
   void doRender();
   std::weak_ptr<Node> mNodeA;
   std::weak_ptr<Node> mNodeB;
+  int getLayer();
 
   virtual bool isSrc(Node *n);
   virtual bool isDst(Node *n);

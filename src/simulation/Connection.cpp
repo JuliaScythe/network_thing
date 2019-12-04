@@ -72,4 +72,8 @@ bool Connection::isDst(Node *n) {
   return n == mNodeB.lock().get();
 }
 
+int Connection::getLayer() {
+  return 1;
+}
+
 // vim: sw=2 et
