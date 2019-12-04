@@ -20,9 +20,11 @@ public:
   Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB, double deltaProgress);
   void doTick();
   void doRender();
-  std::weak_ptr<Node> nodeSrc;
+  std::weak_ptr<Node> mNodeA;
+  std::weak_ptr<Node> mNodeB;
 
-  std::weak_ptr<Node> nodeDst;
+  virtual bool isSrc(Node *n);
+  virtual bool isDst(Node *n);
   
   double deltaProgress; 
   std::vector<PacketTransfer> mPackets;

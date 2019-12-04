@@ -16,17 +16,17 @@ PacketTransfer &PacketTransfer::operator=(const PacketTransfer &other) {
   return *this;
 }
 
-Connection::Connection(std::weak_ptr<Node> nodeSrc, std::weak_ptr<Node> nodeDst, double deltaProgress)
-    : nodeSrc(nodeSrc), nodeDst(nodeDst), deltaProgress(deltaProgress) {
-  nodeSrc.lock()->connections.push_back(this);
-  nodeDst.lock()->connections.push_back(this);
+Connection::Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB, double deltaProgress)
+    : mNodeA(nodeA), mNodeB(nodeB), deltaProgress(deltaProgress) {
+  nodeA.lock()->connections.push_back(this);
+  nodeB.lock()->connections.push_back(this);
 }
 
 void Connection::doTick() {
   for (unsigned i = 0; i < mPackets.size(); i++) {
     mPackets[i].progress += deltaProgress;
     if (mPackets[i].progress > 1.0f) {
-      nodeDst.lock()->receivePacket(mPackets[i].packet);
+      mNodeB.lock()->receivePacket(mPackets[i].packet);
       auto x = mPackets.begin() + (i--);
       mPackets.erase(x);
     }
@@ -34,7 +34,7 @@ void Connection::doTick() {
 }
 
 void Connection::sendPacket(Packet &packet, Node *node) {
-  if (node != nodeSrc.lock().get()) {
+  if (node != mNodeA.lock().get()) {
     throw new std::runtime_error("Invalid source node!");
   }
 
@@ -44,10 +44,10 @@ void Connection::sendPacket(Packet &packet, Node *node) {
 void Connection::doRender() {
   auto r = Display::inst->m_renderer;
 
-  int x1 = nodeSrc.lock()->x + nodeSrc.lock()->sizeX() / 2;
-  int y1 = nodeSrc.lock()->y + nodeSrc.lock()->sizeY() / 2;
-  int x2 = nodeDst.lock()->x + nodeDst.lock()->sizeX() / 2;
-  int y2 = nodeDst.lock()->y + nodeDst.lock()->sizeY() / 2;
+  int x1 = mNodeA.lock()->x + mNodeA.lock()->sizeX() / 2;
+  int y1 = mNodeA.lock()->y + mNodeA.lock()->sizeY() / 2;
+  int x2 = mNodeB.lock()->x + mNodeB.lock()->sizeX() / 2;
+  int y2 = mNodeB.lock()->y + mNodeB.lock()->sizeY() / 2;
 
   SDL_SetRenderDrawColor(r, 0, 0, 0, 255);
   SDL_RenderDrawLine(r, x1, y1, x2, y2);
@@ -62,6 +62,14 @@ void Connection::doRender() {
     rect.h = 50;
     SDL_RenderFillRect(r, &rect);
   }
+}
+
+bool Connection::isSrc(Node *n) {
+  return n == mNodeA.lock().get();
+}
+
+bool Connection::isDst(Node *n) {
+  return n == mNodeB.lock().get();
 }
 
 // vim: sw=2 et
