@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CLionExternalBuildManager">
+    <target id="af9769ad-a9b3-438e-a9d8-ee95214d37af" name="make" projectName="network_thing">
+      <configuration id="976bf87c-4cb1-4eec-83ca-87ec8401a2ab" name="make" toolchainName="Default">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_Make" />
+        </build>
+      </configuration>
+    </target>
+  </component>
+</project>

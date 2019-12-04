@@ -1,5 +1,6 @@
 #include "SimObject.hpp"
 #include <memory>
+#include <iostream>
 void SimObject::doRender() {}
 
 int SimObject::getLayer() {
@@ -7,6 +8,7 @@ int SimObject::getLayer() {
 }
 
 bool SimObject::compareLayers(std::shared_ptr<SimObject> a, std::shared_ptr<SimObject> b) {
+  if (a->getLayer() == b->getLayer()) return false;
   return (a->getLayer() < b->getLayer()); 
 }
 

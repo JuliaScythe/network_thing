@@ -11,7 +11,7 @@
 #include <thread>
 #include <mutex>
 #include <algorithm>
-
+#include <iostream>
 #define TICK_PER_SECOND 50
 
 Display *Display::inst = nullptr;
@@ -84,8 +84,10 @@ void Display::mainLoop() {
     SDL_RenderClear(m_renderer);
     
     //Sort the list to ensure objects are rendered in order
-    std::sort(m_sim.lock()->objects.begin(), m_sim.lock()->objects.end(), SimObject::compareLayers);
-    printf("%ld", m_sim.lock()->objects.size());
+    {
+      auto obj = m_sim.lock()->mObjects;
+      std::sort(obj.begin(), obj.end(), SimObject::compareLayers);
+    }
 
     for (auto &obj : m_sim.lock()->mObjects) {
       obj->doRender();
