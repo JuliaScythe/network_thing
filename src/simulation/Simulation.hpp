@@ -8,7 +8,7 @@ class Simulation {
 public:
   void addObject(std::shared_ptr<SimObject> object);
 
-  std::vector<std::shared_ptr<SimObject>> objects;
+  std::vector<std::shared_ptr<SimObject>> mObjects;
   void doTick();
 };
 

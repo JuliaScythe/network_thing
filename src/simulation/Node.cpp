@@ -2,7 +2,7 @@
 #include "../graphics/Display.hpp"
 
 Node::Node(int x, int y, int width)
-  : x(x), y(y), m_width(width) {}
+  : mX(x), mY(y), m_width(width) {}
 
 SDL_Texture *Node::s_texture = nullptr;
 int Node::s_txt_width = 0;
@@ -14,7 +14,7 @@ void Node::doRender() {
     SDL_QueryTexture(Node::s_texture, nullptr, nullptr, &Node::s_txt_width, &Node::s_txt_height);
   }
 
-  SDL_Rect dst = {.x=x, .y=y, .w=sizeX(), .h=sizeY()};
+  SDL_Rect dst = {.x=mX, .y=mY, .w=sizeX(), .h=sizeY()};
   SDL_RenderCopy(Display::inst->m_renderer, Node::s_texture, NULL, &dst);
 }
 

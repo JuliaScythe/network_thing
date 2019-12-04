@@ -17,14 +17,14 @@ PacketTransfer &PacketTransfer::operator=(const PacketTransfer &other) {
 }
 
 Connection::Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB, double deltaProgress)
-    : mNodeA(nodeA), mNodeB(nodeB), deltaProgress(deltaProgress) {
+    : mNodeA(nodeA), mNodeB(nodeB), mDeltaProgress(deltaProgress) {
   nodeA.lock()->connections.push_back(this);
   nodeB.lock()->connections.push_back(this);
 }
 
 void Connection::doTick() {
   for (unsigned i = 0; i < mPackets.size(); i++) {
-    mPackets[i].progress += deltaProgress;
+    mPackets[i].progress += mDeltaProgress;
     if (mPackets[i].progress > 1.0f) {
       mNodeB.lock()->receivePacket(mPackets[i].packet);
       auto x = mPackets.begin() + (i--);
@@ -44,10 +44,10 @@ void Connection::sendPacket(Packet &packet, Node *node) {
 void Connection::doRender() {
   auto r = Display::inst->m_renderer;
 
-  int x1 = mNodeA.lock()->x + mNodeA.lock()->sizeX() / 2;
-  int y1 = mNodeA.lock()->y + mNodeA.lock()->sizeY() / 2;
-  int x2 = mNodeB.lock()->x + mNodeB.lock()->sizeX() / 2;
-  int y2 = mNodeB.lock()->y + mNodeB.lock()->sizeY() / 2;
+  int x1 = mNodeA.lock()->mX + mNodeA.lock()->sizeX() / 2;
+  int y1 = mNodeA.lock()->mY + mNodeA.lock()->sizeY() / 2;
+  int x2 = mNodeB.lock()->mX + mNodeB.lock()->sizeX() / 2;
+  int y2 = mNodeB.lock()->mY + mNodeB.lock()->sizeY() / 2;
 
   SDL_SetRenderDrawColor(r, 0, 0, 0, 255);
   SDL_RenderDrawLine(r, x1, y1, x2, y2);

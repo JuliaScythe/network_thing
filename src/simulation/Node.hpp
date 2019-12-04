@@ -22,10 +22,10 @@ public:
   int sizeX();
   int sizeY();
   
-  std::string name;
-  int x;
-  int y;
-  float scale;
+  std::string mName;
+  int mX;
+  int mY;
+  float mScale;
 
 private:
   int m_width;

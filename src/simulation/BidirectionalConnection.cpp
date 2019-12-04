@@ -15,7 +15,7 @@ void BidirectionalConnection::doTick() {
 
   // Move the reverse packets forward
   for (unsigned i = 0; i < mReversePackets.size(); i++) {
-    mReversePackets[i].progress += deltaProgress;
+    mReversePackets[i].progress += mDeltaProgress;
     if (mReversePackets[i].progress > 1.0f) {
       auto x = mReversePackets.begin() + (i--);
       mReversePackets.erase(x);

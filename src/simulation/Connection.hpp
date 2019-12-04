@@ -26,7 +26,7 @@ public:
   virtual bool isSrc(Node *n);
   virtual bool isDst(Node *n);
   
-  double deltaProgress; 
+  double mDeltaProgress; 
   std::vector<PacketTransfer> mPackets;
 
   void sendPacket(Packet &packet, Node *node);

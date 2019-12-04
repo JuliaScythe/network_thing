@@ -46,7 +46,7 @@ static void tickingThread() {
 }
 
 void Display::doTick() {
-  for (auto &obj : m_sim.lock()->objects) {
+  for (auto &obj : m_sim.lock()->mObjects) {
     obj->doTick();
   }
 }
@@ -82,7 +82,7 @@ void Display::mainLoop() {
     SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
     SDL_RenderClear(m_renderer);
 
-    for (auto &obj : m_sim.lock()->objects) {
+    for (auto &obj : m_sim.lock()->mObjects) {
       obj->doRender();
     }
 
