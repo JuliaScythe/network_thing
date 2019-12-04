@@ -73,7 +73,7 @@ bool Connection::isDst(Node *n) {
 }
 
 int Connection::getLayer() {
-  return 1;
+  return -1;
 }
 
 // vim: sw=2 et

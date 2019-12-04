@@ -84,10 +84,6 @@ void Display::mainLoop() {
     SDL_RenderClear(m_renderer);
     
     //Sort the list to ensure objects are rendered in order
-    {
-      auto obj = m_sim.lock()->mObjects;
-      std::sort(obj.begin(), obj.end(), SimObject::compareLayers);
-    }
 
     for (auto &obj : m_sim.lock()->mObjects) {
       obj->doRender();
