@@ -10,7 +10,7 @@ struct PacketTransfer {
 
   PacketTransfer &operator=(const PacketTransfer &other);
 
-  Packet &packet;
+  Packet packet;
   float progress; // Ranges from 0 to 1
 };
 

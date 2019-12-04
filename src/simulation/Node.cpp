@@ -15,14 +15,6 @@ void Node::doRender() {
   SDL_RenderCopy(Display::inst->m_renderer, Node::m_texture, NULL, &dst);
 }
 
-void Node::addConnection(Connection connection) {
-  connections.push_back(connection);
-}
-
-std::vector<Connection> Node::getConnections() {
-  return connections;
-}
-
 void Node::doTick() {
   return;
 }

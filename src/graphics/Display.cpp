@@ -1,4 +1,5 @@
 #include "Display.hpp"
+#include "../simulation/nodes/Hub.hpp"
 #include "../simulation/Simulation.hpp"
 #include "../simulation/Node.hpp"
 #include "../simulation/Connection.hpp"
@@ -53,13 +54,26 @@ void Display::doTick() {
 void Display::mainLoop() {
   {
     std::shared_ptr<Node> n1 = std::make_shared<Node>(100, 100, 50, 50);
-    std::shared_ptr<Node> n2 = std::make_shared<Node>(500, 300, 50, 50);
-    std::shared_ptr<Connection> c = std::make_shared<Connection>(n1, n2, 0.01f);
-    Packet p(n1, n2, 32, {0});
-    c->sendPacket(p, n1.get());
+    std::shared_ptr<Node> n2 = std::make_shared<Node>(500, 500, 50, 50);
+    std::shared_ptr<NodeHub> h1 = std::make_shared<NodeHub>(300, 300, 70, 70);
+    std::shared_ptr<NodeHub> h2 = std::make_shared<NodeHub>(400, 400, 70, 70);
+
+    std::shared_ptr<Connection> c1 = std::make_shared<Connection>(n1, h1, 0.01f);
+    std::shared_ptr<Connection> c2 = std::make_shared<Connection>(h1, h2, 0.01f);
+    std::shared_ptr<Connection> c3 = std::make_shared<Connection>(h2, n2, 0.01f);
+
     m_sim.lock()->addObject(n1);
     m_sim.lock()->addObject(n2);
-    m_sim.lock()->addObject(c);
+
+    m_sim.lock()->addObject(h1);
+    m_sim.lock()->addObject(h2);
+
+    m_sim.lock()->addObject(c1);
+    m_sim.lock()->addObject(c2);
+    m_sim.lock()->addObject(c3);
+
+    Packet p(n1, n2, 32, {0});
+    c1->sendPacket(p, n1.get());
   }
 
   std::thread ticker(tickingThread);

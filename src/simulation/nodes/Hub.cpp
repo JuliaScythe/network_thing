@@ -3,8 +3,10 @@
 void NodeHub::forwardPacket(Packet &p) {
   Packet pNew = p;
   pNew.mHopLimit--;
-  for (Connection &c : connections) {
-    c.sendPacket(pNew, this);
+  for (Connection *c : connections) {
+    if (c->nodeSrc.lock().get() == this) {
+      c->sendPacket(pNew, this);
+    }
   }
 }
 

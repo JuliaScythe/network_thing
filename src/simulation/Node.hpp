@@ -14,9 +14,7 @@ public:
   
   void doTick();
   void doRender();
-  void addConnection(Connection connection);
-  std::vector<Connection> getConnections();
-  std::vector<Connection> connections;
+  std::vector<Connection *> connections;
   void receivePacket(Packet &p);
   virtual void handlePacket(Packet &p);
   virtual void forwardPacket(Packet &p);

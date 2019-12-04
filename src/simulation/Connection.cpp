@@ -16,12 +16,17 @@ PacketTransfer &PacketTransfer::operator=(const PacketTransfer &other) {
   return *this;
 }
 
-Connection::Connection(std::weak_ptr<Node> nodeSrc, std::weak_ptr<Node> nodeDst, double deltaProgress) : nodeSrc(nodeSrc), nodeDst(nodeDst), deltaProgress(deltaProgress) {}
+Connection::Connection(std::weak_ptr<Node> nodeSrc, std::weak_ptr<Node> nodeDst, double deltaProgress)
+    : nodeSrc(nodeSrc), nodeDst(nodeDst), deltaProgress(deltaProgress) {
+  nodeSrc.lock()->connections.push_back(this);
+  nodeDst.lock()->connections.push_back(this);
+}
 
 void Connection::doTick() {
   for (unsigned i = 0; i < mPackets.size(); i++) {
     mPackets[i].progress += deltaProgress;
     if (mPackets[i].progress > 1.0f) {
+      nodeDst.lock()->receivePacket(mPackets[i].packet);
       auto x = mPackets.begin() + (i--);
       mPackets.erase(x);
     }
