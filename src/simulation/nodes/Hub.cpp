@@ -7,9 +7,7 @@ void NodeHub::forwardPacket(Packet &p, Connection *in) {
   pNew.mHopLimit--;
   for (Connection *c : connections) {
     if (c == in) continue;
-    printf("enumerate conn\n");
     if (c->isSrc(this)) {
-    printf("send on conn\n");
       c->sendPacket(pNew, this);
     }
   }
