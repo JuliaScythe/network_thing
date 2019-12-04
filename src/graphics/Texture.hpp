@@ -13,5 +13,7 @@ public:
   float ratio();
   static Texture NODE;
   static Texture HUB;
+  static Texture PACKET;
+  static Texture PACKET_ERROR;
   static void initAll();
 };

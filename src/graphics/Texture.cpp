@@ -4,6 +4,9 @@
 Texture Texture::NODE("res/node_basic.svg");
 Texture Texture::HUB("res/node_hub.svg");
 
+Texture Texture::PACKET("res/packet_basic.png");
+Texture Texture::PACKET_ERROR("res/packet_error.svg");
+
 Texture::Texture(const char *file) : m_file(file) {}
 
 void Texture::init() {
@@ -13,7 +16,10 @@ void Texture::init() {
 
 void Texture::initAll() {
   NODE.init();
-  HUB.init();
+  HUB.init();  // This is a really shitty way of keeping track of textures, cant this just be called in the constructor?
+
+  PACKET.init();
+  PACKET_ERROR.init();
 }
 
 float Texture::ratio() {
