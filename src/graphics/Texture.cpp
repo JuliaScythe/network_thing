@@ -4,7 +4,7 @@
 Texture Texture::NODE("res/node_basic.svg");
 Texture Texture::HUB("res/node_hub.svg");
 
-Texture Texture::PACKET("res/packet_basic.png");
+Texture Texture::PACKET("res/packet_basic.svg");
 Texture Texture::PACKET_ERROR("res/packet_error.svg");
 
 Texture::Texture(const char *file) : m_file(file) {}
