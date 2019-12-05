@@ -1,6 +1,7 @@
 #include "Connection.hpp"
 #include <memory>
 #include <vector>
+#include <cmath>
 
 #include "../graphics/Display.hpp"
 #include "../graphics/Texture.hpp"
@@ -23,8 +24,9 @@ Connection::Connection(std::weak_ptr<Node> nodeA, std::weak_ptr<Node> nodeB, dou
 }
 
 void Connection::doTick() {
+  float deltaProg = scaledDeltaProgress();
   for (unsigned i = 0; i < mPackets.size(); i++) {
-    mPackets[i].progress += mDeltaProgress;
+    mPackets[i].progress += deltaProg;
     if (mPackets[i].progress > 1.0f) {
       mNodeB.lock()->receivePacket(mPackets[i].packet, this);
       auto x = mPackets.begin() + (i--);
@@ -75,6 +77,17 @@ bool Connection::isDst(Node *n) {
 
 int Connection::getLayer() {
   return -1;
+}
+
+double Connection::scaledDeltaProgress() {
+  int x1 = mNodeA.lock()->mX + mNodeA.lock()->sizeX() / 2;
+  int y1 = mNodeA.lock()->mY + mNodeA.lock()->sizeY() / 2;
+  int x2 = mNodeB.lock()->mX + mNodeB.lock()->sizeX() / 2;
+  int y2 = mNodeB.lock()->mY + mNodeB.lock()->sizeY() / 2;
+
+  float len = sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
+
+  return mDeltaProgress / len;
 }
 
 // vim: sw=2 et

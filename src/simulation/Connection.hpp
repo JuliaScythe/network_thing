@@ -26,11 +26,13 @@ public:
 
   virtual bool isSrc(Node *n);
   virtual bool isDst(Node *n);
-  
+
   double mDeltaProgress; 
   std::vector<PacketTransfer> mPackets;
 
   virtual void sendPacket(Packet &packet, Node *node);
+protected:
+  double scaledDeltaProgress();
 };
 
 // vim: sw=2 et

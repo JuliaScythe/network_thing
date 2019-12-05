@@ -64,11 +64,11 @@ void Display::mainLoop() {
     std::shared_ptr<NodeHub> h2 = std::make_shared<NodeHub>(400, 400, 30);
     std::shared_ptr<NodeHub> h3 = std::make_shared<NodeHub>(350, 250, 30);
 
-    std::shared_ptr<Connection> c1 = std::make_shared<Connection>(n1, h1, 0.01f);
-    std::shared_ptr<BidirectionalConnection> c2 = std::make_shared<BidirectionalConnection>(h1, h2, 0.01f);
-    std::shared_ptr<BidirectionalConnection> c3 = std::make_shared<BidirectionalConnection>(h2, h3, 0.01f);
-    std::shared_ptr<BidirectionalConnection> c4 = std::make_shared<BidirectionalConnection>(h3, h1, 0.01f);
-    std::shared_ptr<Connection> c5 = std::make_shared<Connection>(h2, n2, 0.01f);
+    std::shared_ptr<Connection> c1 = std::make_shared<Connection>(n1, h1, 0.5f);
+    std::shared_ptr<BidirectionalConnection> c2 = std::make_shared<BidirectionalConnection>(h1, h2, 0.5f);
+    std::shared_ptr<BidirectionalConnection> c3 = std::make_shared<BidirectionalConnection>(h2, h3, 0.5f);
+    std::shared_ptr<BidirectionalConnection> c4 = std::make_shared<BidirectionalConnection>(h3, h1, 0.5f);
+    std::shared_ptr<Connection> c5 = std::make_shared<Connection>(h2, n2, 0.5f);
 
     m_sim.lock()->addObject(n1);
     m_sim.lock()->addObject(n2);

@@ -15,9 +15,11 @@ void BidirectionalConnection::sendPacket(Packet &packet, Node *node) {
 void BidirectionalConnection::doTick() {
   Connection::doTick(); // Ensure the forward packets are moved forward
 
+  float deltaProg = scaledDeltaProgress();
+
   // Move the reverse packets forward
   for (unsigned i = 0; i < mReversePackets.size(); i++) {
-    mReversePackets[i].progress += mDeltaProgress;
+    mReversePackets[i].progress += deltaProg;
     if (mReversePackets[i].progress > 1.0f) {
       mNodeA.lock()->receivePacket(mReversePackets[i].packet, this);
       auto x = mReversePackets.begin() + (i--);
