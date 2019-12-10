@@ -1,6 +1,7 @@
 #include "BidirectionalConnection.hpp"
 #include "Node.hpp"
 #include "../graphics/Display.hpp"
+#include "../graphics/Texture.hpp"
 
 void BidirectionalConnection::sendPacket(Packet &packet, Node *node) {
   if (node == mNodeA.lock().get()) {
@@ -44,9 +45,9 @@ void BidirectionalConnection::doRender() {
     SDL_Rect rect;
     rect.x = x1 + (x2 - x1) * p.progress - 25;
     rect.y = y1 + (y2 - y1) * p.progress - 25;
-    rect.w = 50;
+    rect.w = 36;
     rect.h = 50;
-    SDL_RenderFillRect(r, &rect);
+    SDL_RenderCopy(Display::inst->m_renderer, Texture::PACKET.m_texture, NULL, &rect);
   }
 }
 

@@ -63,7 +63,6 @@ void Connection::doRender() {
     rect.w = 36;
     rect.h = 50;
     SDL_RenderCopy(Display::inst->m_renderer, Texture::PACKET.m_texture, NULL, &rect);
-    
   }
 }
 
