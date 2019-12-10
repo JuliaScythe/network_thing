@@ -58,7 +58,7 @@ void Connection::doRender() {
 
   for (auto &p : mPackets) {
     SDL_Rect rect;
-    rect.x = x1 + (x2 - x1) * p.progress - 25;
+    rect.x = x1 + (x2 - x1) * p.progress - 18;
     rect.y = y1 + (y2 - y1) * p.progress - 25;
     rect.w = 36;
     rect.h = 50;

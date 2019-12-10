@@ -49,6 +49,25 @@ static void tickingThread() {
   }
 }
 
+static void packetThread(std::vector<std::shared_ptr<Node>> nodes, std::vector<std::shared_ptr<BidirectionalConnection>> conns) {
+  auto next = std::chrono::system_clock::now();
+  auto last = next;
+  while (!Display::inst->m_close) {
+    std::this_thread::sleep_until(next);
+
+    size_t a = std::rand() % nodes.size();
+    size_t b = std::rand() % nodes.size();
+
+    Packet p(nodes[a], nodes[b], 16, {0});
+    conns[a]->sendPacket(p, nodes[a].get());
+
+    last = next;
+
+    size_t n = std::rand() % 9 + 2;
+    next += std::chrono::duration<int64_t, std::ratio<1, 2>>{n};
+  }
+}
+
 void Display::doTick() {
   for (auto &obj : m_sim.lock()->mObjects) {
     obj->doTick();
@@ -56,45 +75,65 @@ void Display::doTick() {
 }
 
 void Display::mainLoop() {
-  {
-    std::shared_ptr<Node> n1 = std::make_shared<Node>(100, 100, 30);
-    std::shared_ptr<Node> n2 = std::make_shared<Node>(500, 500, 30);
+  std::shared_ptr<NodeHub> h1 = std::make_shared<NodeHub>(400, 700, 40);
 
-    std::shared_ptr<NodeHub> h1 = std::make_shared<NodeHub>(300, 300, 30);
-    std::shared_ptr<NodeHub> h2 = std::make_shared<NodeHub>(400, 400, 30);
-    std::shared_ptr<NodeHub> h3 = std::make_shared<NodeHub>(350, 250, 30);
+  std::shared_ptr<Node> n1 = std::make_shared<Node>(350, 400, 30);
+  std::shared_ptr<BidirectionalConnection> c1 = std::make_shared<BidirectionalConnection>(n1, h1, 1.5f);
+  std::shared_ptr<Node> n2 = std::make_shared<Node>(200, 500, 30);
+  std::shared_ptr<BidirectionalConnection> c2 = std::make_shared<BidirectionalConnection>(n2, h1, 1.5f);
+  std::shared_ptr<Node> n3 = std::make_shared<Node>(100, 700, 30);
+  std::shared_ptr<BidirectionalConnection> c3 = std::make_shared<BidirectionalConnection>(n3, h1, 1.5f);
+  std::shared_ptr<Node> n4 = std::make_shared<Node>(200, 900, 30);
+  std::shared_ptr<BidirectionalConnection> c4 = std::make_shared<BidirectionalConnection>(n4, h1, 1.5f);
+  std::shared_ptr<Node> n5 = std::make_shared<Node>(350, 1000, 30);
+  std::shared_ptr<BidirectionalConnection> c5 = std::make_shared<BidirectionalConnection>(n5, h1, 1.5f);
 
-    std::shared_ptr<Connection> c1 = std::make_shared<Connection>(n1, h1, 0.5f);
-    std::shared_ptr<BidirectionalConnection> c2 = std::make_shared<BidirectionalConnection>(h1, h2, 0.5f);
-    std::shared_ptr<BidirectionalConnection> c3 = std::make_shared<BidirectionalConnection>(h2, h3, 0.5f);
-    std::shared_ptr<BidirectionalConnection> c4 = std::make_shared<BidirectionalConnection>(h3, h1, 0.5f);
-    std::shared_ptr<Connection> c5 = std::make_shared<Connection>(h2, n2, 0.5f);
+  std::shared_ptr<NodeHub> h2 = std::make_shared<NodeHub>(1024-400, 700, 40);
 
-    m_sim.lock()->addObject(n1);
-    m_sim.lock()->addObject(n2);
+  std::shared_ptr<Node> n6 = std::make_shared<Node>(1024-350, 400, 30);
+  std::shared_ptr<BidirectionalConnection> c6 = std::make_shared<BidirectionalConnection>(n6, h2, 1.5f);
+  std::shared_ptr<Node> n7 = std::make_shared<Node>(1024-200, 500, 30);
+  std::shared_ptr<BidirectionalConnection> c7 = std::make_shared<BidirectionalConnection>(n7, h2, 1.5f);
+  std::shared_ptr<Node> n8 = std::make_shared<Node>(1024-100, 700, 30);
+  std::shared_ptr<BidirectionalConnection> c8 = std::make_shared<BidirectionalConnection>(n8, h2, 1.5f);
+  std::shared_ptr<Node> n9 = std::make_shared<Node>(1024-200, 900, 30);
+  std::shared_ptr<BidirectionalConnection> c9 = std::make_shared<BidirectionalConnection>(n9, h2, 1.5f);
+  std::shared_ptr<Node> n10 = std::make_shared<Node>(1024-350, 1000, 30);
+  std::shared_ptr<BidirectionalConnection> c10 = std::make_shared<BidirectionalConnection>(n10, h2, 1.5f);
 
-    m_sim.lock()->addObject(h1);
-    m_sim.lock()->addObject(h2);
-    m_sim.lock()->addObject(h3);
+  std::shared_ptr<BidirectionalConnection> ch = std::make_shared<BidirectionalConnection>(h1, h2, 1.5f);
 
-    m_sim.lock()->addObject(c1);
-    m_sim.lock()->addObject(c2);
-    m_sim.lock()->addObject(c3);
-    m_sim.lock()->addObject(c4);
-    m_sim.lock()->addObject(c5);
-
-    Packet p(n1, n2, 16, {0});
-    c1->sendPacket(p, n1.get());
-  }
+  m_sim.lock()->addObject(n1);
+  m_sim.lock()->addObject(n2);
+  m_sim.lock()->addObject(n3);
+  m_sim.lock()->addObject(n4);
+  m_sim.lock()->addObject(n5);
+  m_sim.lock()->addObject(n6);
+  m_sim.lock()->addObject(n7);
+  m_sim.lock()->addObject(n8);
+  m_sim.lock()->addObject(n9);
+  m_sim.lock()->addObject(n10);
+  m_sim.lock()->addObject(c1);
+  m_sim.lock()->addObject(c2);
+  m_sim.lock()->addObject(c3);
+  m_sim.lock()->addObject(c4);
+  m_sim.lock()->addObject(c5);
+  m_sim.lock()->addObject(c6);
+  m_sim.lock()->addObject(c7);
+  m_sim.lock()->addObject(c8);
+  m_sim.lock()->addObject(c9);
+  m_sim.lock()->addObject(c10);
+  m_sim.lock()->addObject(h1);
+  m_sim.lock()->addObject(h2);
+  m_sim.lock()->addObject(ch);
 
   std::thread ticker(tickingThread);
+  std::thread packeter(packetThread, std::vector<std::shared_ptr<Node>>{n1, n2, n3, n4, n5, n6, n7, n8, n9, n10}, std::vector<std::shared_ptr<BidirectionalConnection>>{c1, c2, c3, c4, c5, c6, c7, c8, c9, c10});
 
   while (!m_close) {
     SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
     SDL_RenderClear(m_renderer);
     
-    //Sort the list to ensure objects are rendered in order
-
     for (auto &obj : m_sim.lock()->mObjects) {
       obj->doRender();
     }

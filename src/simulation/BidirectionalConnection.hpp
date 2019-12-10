@@ -1,11 +1,13 @@
 #pragma once
 
 #include "Connection.hpp"
+#include <chrono>
 
 class BidirectionalConnection : public Connection {
 public:
   using Connection::Connection;
   std::vector<PacketTransfer> mReversePackets;
+  std::vector<std::pair<float, std::chrono::system_clock::time_point>> mQueuedExplosions;
 
   virtual void doTick() override;
   virtual void doRender() override;

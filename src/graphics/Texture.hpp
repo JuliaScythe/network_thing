@@ -15,5 +15,6 @@ public:
   static Texture HUB;
   static Texture PACKET;
   static Texture PACKET_ERROR;
+  static Texture EXPLOSION;
   static void initAll();
 };

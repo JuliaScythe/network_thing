@@ -7,6 +7,8 @@ Texture Texture::HUB("res/node_hub.svg");
 Texture Texture::PACKET("res/packet_basic.svg");
 Texture Texture::PACKET_ERROR("res/packet_error.svg");
 
+Texture Texture::EXPLOSION("res/boom.svg");
+
 Texture::Texture(const char *file) : m_file(file) {}
 
 void Texture::init() {
@@ -17,6 +19,7 @@ void Texture::init() {
 void Texture::initAll() {
   NODE.init();
   HUB.init();  // This is a really shitty way of keeping track of textures, cant this just be called in the constructor?
+  EXPLOSION.init();
 
   PACKET.init();
   PACKET_ERROR.init();
