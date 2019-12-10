@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <iostream>
 #define TICK_PER_SECOND 100
+#define FRAME_PER_SECOND 60
 
 Display *Display::inst = nullptr;
 
@@ -130,7 +131,14 @@ void Display::mainLoop() {
   std::thread ticker(tickingThread);
   std::thread packeter(packetThread, std::vector<std::shared_ptr<Node>>{n1, n2, n3, n4, n5, n6, n7, n8, n9, n10}, std::vector<std::shared_ptr<BidirectionalConnection>>{c1, c2, c3, c4, c5, c6, c7, c8, c9, c10});
 
+  using frameDuration = std::chrono::duration<int64_t, std::ratio<1, FRAME_PER_SECOND>>;
+
+  auto next = std::chrono::system_clock::now() + frameDuration{0};
+  auto last = next - frameDuration{1};
+
   while (!m_close) {
+    std::this_thread::sleep_until(next);
+
     SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
     SDL_RenderClear(m_renderer);
     
@@ -146,9 +154,13 @@ void Display::mainLoop() {
         m_close = true;
       }
     }
+
+    last = next;
+    next += frameDuration{1};
   }
 
   ticker.join();
+  packeter.join();
 }
 
 SDL_Texture *Display::createTexture(const char *path) {

@@ -46,10 +46,10 @@ void Connection::sendPacket(Packet &packet, Node *node) {
 void Connection::doRender() {
   auto r = Display::inst->m_renderer;
 
-  int x1 = mNodeA.lock()->mX + mNodeA.lock()->sizeX() / 2;
-  int y1 = mNodeA.lock()->mY + mNodeA.lock()->sizeY() / 2;
-  int x2 = mNodeB.lock()->mX + mNodeB.lock()->sizeX() / 2;
-  int y2 = mNodeB.lock()->mY + mNodeB.lock()->sizeY() / 2;
+  int x1 = mNodeA.lock()->mX;
+  int y1 = mNodeA.lock()->mY;
+  int x2 = mNodeB.lock()->mX;
+  int y2 = mNodeB.lock()->mY;
 
   SDL_SetRenderDrawColor(r, 0, 0, 0, 255);
   SDL_RenderDrawLine(r, x1, y1, x2, y2);
@@ -79,10 +79,10 @@ int Connection::getLayer() {
 }
 
 double Connection::scaledDeltaProgress() {
-  int x1 = mNodeA.lock()->mX + mNodeA.lock()->sizeX() / 2;
-  int y1 = mNodeA.lock()->mY + mNodeA.lock()->sizeY() / 2;
-  int x2 = mNodeB.lock()->mX + mNodeB.lock()->sizeX() / 2;
-  int y2 = mNodeB.lock()->mY + mNodeB.lock()->sizeY() / 2;
+  int x1 = mNodeA.lock()->mX;
+  int y1 = mNodeA.lock()->mY;
+  int x2 = mNodeB.lock()->mX;
+  int y2 = mNodeB.lock()->mY;
 
   float len = sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
 

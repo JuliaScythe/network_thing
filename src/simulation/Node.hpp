@@ -1,5 +1,6 @@
 #pragma once
 
+#include <chrono>
 #include <vector>
 #include <SDL2/SDL.h>
 #include "Connection.hpp"
@@ -29,6 +30,7 @@ public:
 
 private:
   int m_width;
+  std::chrono::system_clock::time_point mTickRenderTime;
 };
 
 // vim: sw=2 et

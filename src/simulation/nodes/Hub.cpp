@@ -14,7 +14,7 @@ void NodeHub::forwardPacket(Packet &p, Connection *in) {
 }
 
 void NodeHub::doRender() {
-  SDL_Rect dst = {.x=mX, .y=mY, .w=sizeX(), .h=sizeY()};
+  SDL_Rect dst = {.x=mX - sizeX() / 2, .y=mY - sizeY() / 2, .w=sizeX(), .h=sizeY()};
   SDL_RenderCopy(Display::inst->m_renderer, Texture::HUB.m_texture, NULL, &dst);
 }
 

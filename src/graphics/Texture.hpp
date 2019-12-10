@@ -16,5 +16,6 @@ public:
   static Texture PACKET;
   static Texture PACKET_ERROR;
   static Texture EXPLOSION;
+  static Texture TICK;
   static void initAll();
 };

@@ -47,10 +47,10 @@ void BidirectionalConnection::doRender() {
 
   auto r = Display::inst->m_renderer;
 
-  int x2 = mNodeA.lock()->mX + mNodeA.lock()->sizeX() / 2;
-  int y2 = mNodeA.lock()->mY + mNodeA.lock()->sizeY() / 2;
-  int x1 = mNodeB.lock()->mX + mNodeB.lock()->sizeX() / 2;
-  int y1 = mNodeB.lock()->mY + mNodeB.lock()->sizeY() / 2;
+  int x2 = mNodeA.lock()->mX;
+  int y2 = mNodeA.lock()->mY;
+  int x1 = mNodeB.lock()->mX;
+  int y1 = mNodeB.lock()->mY;
 
   SDL_SetRenderDrawColor(r, 255, 0, 0, 255);
 
