@@ -1,6 +1,6 @@
 # Network Visualiser
 
-By Jake Irvine and Matthew Lugg
+By Julia Irvine and Matthew Lugg
 
 TODO: Documentation
 
